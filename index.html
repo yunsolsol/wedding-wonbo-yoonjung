@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WonBo &amp; YoonJung | 2026.08.22</title>
+  <style>
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Thin.otf'); font-weight:100; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-ExtraLight.otf'); font-weight:200; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Light.otf'); font-weight:300; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Regular.otf'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Medium.otf'); font-weight:500; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-SemiBold.otf'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Bold.otf'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-ExtraBold.otf'); font-weight:800; font-display:swap; }
+    @font-face { font-family:'Pretendard'; src:url('fonts/Pretendard-Black.otf'); font-weight:900; font-display:swap; }
+    @font-face { font-family:'iceJaram'; src:url('fonts/icejaram.ttf') format('truetype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Thesignature'; src:url('fonts/Thesignature.otf') format('opentype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'VT323'; src:url('fonts/VT323-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { width:100%; overflow-x:hidden; background:#f0ede8; }
+
+    .page {
+      width:402px; height:7371px;
+      position:relative; background:white;
+      transform-origin:top left; overflow:hidden;
+    }
+    .el { position:absolute; }
+
+    /* ── HERO ── */
+    .hero-bg { position:absolute; top:0; left:0; width:402px; height:874px; overflow:hidden; }
+    .hero-bg img { position:absolute; width:100%; height:104.9%; top:-4.92%; left:0; object-fit:cover; }
+
+    .t-names {
+      top:135px; left:132px; width:138px;
+      font-family:'Pretendard',sans-serif; font-weight:300;
+      font-size:16px; color:#23211c;
+      text-align:center; white-space:nowrap; line-height:normal;
+    }
+    .t-title1, .t-title2 {
+      left:50%; transform:translateX(-50%);
+      font-family:'iceJaram',serif; font-size:54.02px; color:#5f7e51;
+      text-align:center; white-space:nowrap; line-height:normal;
+    }
+    .t-title1 { top:157px; }
+    .t-title2 { top:193px; }
+    .t-date {
+      top:775px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:300;
+      font-size:16px; color:#23211c; text-align:center; white-space:nowrap;
+    }
+    .t-venue-small {
+      top:796px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:14px; color:#23211c; text-align:center; white-space:nowrap;
+    }
+
+    /* ── QUOTE ── */
+    .polaroid-wrap {
+      top:944px; left:50%; transform:translateX(-50%);
+      width:361px; height:248px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .polaroid-img { width:338px; height:208px; object-fit:cover; transform:rotate(7.08deg); }
+    .t-quote {
+      top:1038px; left:50%; transform:translateX(-50%);
+      font-family:'iceJaram',serif; font-size:24px; color:#23211c;
+      text-align:center; white-space:nowrap; line-height:1.3;
+    }
+
+    /* ── CALENDAR ── */
+    .t-month {
+      top:1262px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:16px; color:#23211c; text-align:center; white-space:nowrap;
+    }
+    .cal-h { left:30px; width:342px; height:0; border-top:0.6px solid #23211c; }
+    .cal-h.h1 { top:1298px; } .cal-h.h2 { top:1329px; } .cal-h.h3 { top:1426px; }
+    .cal-v { top:1298px; width:0; height:128px; border-left:0.6px solid #23211c; }
+    .cal-v.v1 { left:144px; } .cal-v.v2 { left:258px; }
+    .cal-day {
+      top:1304px; font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:16px; color:#23211c; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .cal-day.d1 { left:85px; } .cal-day.d2 { left:201px; } .cal-day.d3 { left:315px; }
+    .cal-num {
+      top:1355px; font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:32px; color:#23211c; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .cal-num.n1 { left:86.5px; } .cal-num.n2 { left:201px; } .cal-num.n3 { left:314.5px; }
+    .cal-mark-wrap { top:1313px; left:138px; width:126px; height:130px; display:flex; align-items:center; justify-content:center; }
+    .cal-mark { width:98px; height:105px; transform:rotate(18.01deg); }
+
+    /* ── GALLERY ── */
+    .t-gallery-label {
+      top:1513px; left:183px;
+      font-family:'Pretendard',sans-serif; font-weight:100;
+      font-size:10px; color:#23211c; text-transform:capitalize; white-space:nowrap;
+    }
+    .t-gallery-cap {
+      top:1694px; left:122px;
+      font-family:'VT323',monospace; font-size:6.057px; color:#23211c; white-space:nowrap;
+    }
+    .gp { overflow:hidden; cursor:pointer; }
+    .gp img { width:100%; height:100%; object-fit:cover; display:block; }
+    .sig { font-family:'Thesignature',cursive; font-weight:400; color:#5f7e51; white-space:nowrap; line-height:normal; }
+    .sig-sm { font-family:'Thesignature',cursive; font-weight:400; font-size:11px; color:#5f7e51; line-height:1.5; }
+
+    /* ── LOCATION ── */
+    .t-loc-label {
+      top:6093px; left:180px;
+      font-family:'Pretendard',sans-serif; font-weight:100;
+      font-size:10px; color:#23211c; text-transform:capitalize; white-space:nowrap;
+    }
+    .t-venue-name {
+      top:6135px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:20px; color:#23211c; text-align:center; line-height:normal; white-space:nowrap;
+    }
+    .t-venue-addr {
+      top:6197px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:300;
+      font-size:15px; color:#7a8073; text-align:center; line-height:normal;
+    }
+    .nav-btns {
+      top:6437px; left:20px; width:361px; height:36px;
+      display:flex; gap:8px; justify-content:space-between;
+    }
+    .nav-btn {
+      flex:1; height:36px;
+      border:1px solid #c5c2bc; border-radius:20px;
+      background:white; cursor:pointer;
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:12px; color:#23211c;
+      -webkit-tap-highlight-color:transparent;
+      text-decoration:none; display:flex; align-items:center; justify-content:center;
+      white-space:nowrap;
+    }
+    .nav-btn:active { background:#f8f6f2; }
+    .map-box {
+      top:6243px; left:20px; width:361px; height:186px;
+      overflow:hidden; display:block;
+    }
+    .map-box img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* ── PARENTS (shifted +35px from original) ── */
+    .parents-bg { top:6552px; left:0; width:402px; height:351px; background:white; }
+    .t-par-title {
+      top:6603px; font-family:'Pretendard',sans-serif; font-weight:500;
+      font-size:16px; color:#23211c; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .t-par-title.g { left:104px; } .t-par-title.b { left:298px; }
+    .t-par-group {
+      top:6695px; font-family:'Pretendard',sans-serif; font-weight:300;
+      font-size:15px; color:#7a8073; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .t-par-group.g { left:104.5px; } .t-par-group.b { left:298.5px; }
+    .t-role {
+      font-family:'Pretendard',sans-serif; font-weight:300;
+      font-size:15px; color:#7a8073; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .t-pname {
+      font-family:'Pretendard',sans-serif; font-weight:500;
+      font-size:15px; color:#23211c; text-align:center; white-space:nowrap; transform:translateX(-50%);
+    }
+    .ph-wrap { position:absolute; }
+    .ph-wrap img { width:100%; height:100%; display:block; }
+    .ph-link { position:absolute; top:0; height:100%; display:block; }
+
+    /* ── GIFT ── */
+    .t-gift-title {
+      top:6940px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:20px; color:#23211c; text-align:center; white-space:nowrap;
+    }
+    .t-gift-desc {
+      top:6969px; left:50%; transform:translateX(-50%);
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:13px; color:#7a8073; text-align:center; white-space:nowrap;
+    }
+    .gift-btn {
+      left:20px; width:362px; height:36px;
+      border:1px solid #7a8073; border-radius:27px;
+      background:white; cursor:pointer;
+      font-family:'Pretendard',sans-serif; font-weight:400;
+      font-size:13px; color:#23211c;
+      display:flex; align-items:center; justify-content:center;
+      transition:background 0.15s; -webkit-tap-highlight-color:transparent;
+    }
+    .gift-btn.gb1 { top:7017px; } .gift-btn.gb2 { top:7065px; }
+    .gift-btn:active { background:#f8f6f2; }
+
+    /* ── FOOTER ── */
+    .footer-bg { top:7152px; left:0; width:402px; height:219px; background:#5f7e51; }
+    .t-footer {
+      top:7233px; left:50%; transform:translateX(-50%);
+      font-family:'iceJaram',serif; font-size:24.229px; color:white;
+      text-align:center; line-height:normal; white-space:nowrap;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.4); z-index:100; align-items:flex-end;
+    }
+    .modal-overlay.open { display:flex; }
+    .modal-sheet {
+      width:100%; background:white; border-radius:20px 20px 0 0;
+      padding:24px 20px 40px; position:relative;
+      font-family:'Pretendard',sans-serif;
+      animation:slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+    .modal-x {
+      position:absolute; top:16px; right:16px;
+      background:none; border:none; font-size:20px; color:#7a8073; cursor:pointer; padding:4px 8px;
+    }
+    .modal-title { font-size:16px; font-weight:500; color:#23211c; text-align:center; margin-bottom:20px; }
+    .account-row {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; background:#f8f6f2; border-radius:12px; margin-bottom:10px;
+    }
+    .account-info { font-size:13px; color:#23211c; line-height:1.6; }
+    .copy-btn {
+      font-size:12px; color:#5f7e51; font-weight:500;
+      background:none; border:1px solid #5f7e51; border-radius:8px;
+      padding:4px 10px; cursor:pointer; white-space:nowrap;
+      font-family:'Pretendard',sans-serif; flex-shrink:0; margin-left:10px;
+    }
+    .modal-close {
+      width:100%; margin-top:16px; padding:12px;
+      background:none; border:1px solid #d0cdc8; border-radius:12px;
+      font-size:14px; color:#7a8073; font-family:'Pretendard',sans-serif; cursor:pointer;
+    }
+
+    /* ── BGM BUTTON ── */
+    #bgm-btn {
+      position:fixed; top:16px; right:16px;
+      width:36px; height:36px; border-radius:50%;
+      background:rgba(255,255,255,0.25);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.3);
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; z-index:200; font-size:16px; line-height:1;
+      color:#5f7e51; -webkit-tap-highlight-color:transparent;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.96); z-index:500;
+      flex-direction:column; align-items:center; justify-content:center;
+    }
+    #lb-counter {
+      position:absolute; top:18px; left:50%; transform:translateX(-50%);
+      color:white; font-family:'VT323',monospace; font-size:22px;
+      z-index:501; letter-spacing:1px; pointer-events:none;
+    }
+    #lb-close {
+      position:absolute; top:12px; right:16px;
+      background:none; border:none; color:white;
+      font-size:28px; cursor:pointer; z-index:501; line-height:1; padding:4px 8px;
+    }
+    #lb-prev, #lb-next {
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(255,255,255,0.15); border:none; color:white;
+      font-size:28px; cursor:pointer; padding:0;
+      width:44px; height:44px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      z-index:501; -webkit-tap-highlight-color:transparent;
+    }
+    #lb-prev { left:10px; } #lb-next { right:10px; }
+    #lb-img { max-width:100%; max-height:100%; object-fit:contain; user-select:none; -webkit-user-drag:none; }
+  </style>
+</head>
+<body>
+
+<!-- ── BGM ── -->
+<audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
+<button id="bgm-btn" onclick="toggleBGM()" aria-label="음악 재생/정지">♪</button>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox">
+  <div id="lb-counter"></div>
+  <button id="lb-close">✕</button>
+  <button id="lb-prev">‹</button>
+  <button id="lb-next">›</button>
+  <img id="lb-img" src="" alt="" draggable="false">
+</div>
+
+<div class="page" id="page">
+
+  <!-- ── HERO ── -->
+  <div class="el hero-bg">
+    <img src="images/main_hero.png" alt="wedding">
+  </div>
+  <p class="el t-names">WonBo &amp; YoonJung</p>
+  <p class="el t-title1">With hearts</p>
+  <p class="el t-title2">full of gratitude</p>
+  <p class="el t-date">2026. 08. 22 PM 02:00</p>
+  <p class="el t-venue-small">더컨벤션 송파문정 13층 아모르홀</p>
+
+  <!-- ── QUOTE ── -->
+  <div class="el polaroid-wrap">
+    <img class="polaroid-img" src="images/photo_rotated.png" alt="">
+  </div>
+  <div class="el t-quote">
+    <p>"때문에"가 아닌 "덕분에"의 </p>
+    <p>마음으로 살아가겠습니다</p>
+  </div>
+
+  <!-- ── CALENDAR ── -->
+  <p class="el t-month">8월</p>
+  <div class="el cal-h h1"></div>
+  <div class="el cal-h h2"></div>
+  <div class="el cal-h h3"></div>
+  <div class="el cal-v v1"></div>
+  <div class="el cal-v v2"></div>
+  <span class="el cal-day d1">Fri</span>
+  <span class="el cal-day d2">Sat</span>
+  <span class="el cal-day d3">Sun</span>
+  <span class="el cal-num n1">21</span>
+  <span class="el cal-num n2">22</span>
+  <span class="el cal-num n3">23</span>
+  <div class="el cal-mark-wrap">
+    <img class="cal-mark" src="images/cal_mark.svg" alt="">
+  </div>
+
+  <!-- ── GALLERY ── -->
+  <p class="el t-gallery-label">gallery</p>
+  <p class="el t-gallery-cap">Together we've grown, loved, and found a lifetime in each other.</p>
+
+  <div class="el gp" style="top:1555px;left:95px;width:213px;height:133px;" onclick="openLightbox(0)">
+    <img src="images/gallery_01.png" alt="">
+  </div>
+
+  <span class="el sig" style="top:1612px;left:38px;font-size:24.229px;">WonBo</span>
+  <span class="el sig" style="top:1612px;left:279px;font-size:24.229px;">YoonJung</span>
+
+  <div class="el sig" style="top:1779px;left:338px;font-size:24.229px;line-height:normal;">
+    <p style="margin-bottom:0;line-height:normal;">love -</p>
+    <p style="margin-bottom:0;line-height:normal;">love -</p>
+    <p style="line-height:normal;">love -</p>
+  </div>
+
+  <div class="el gp" style="top:1721px;left:20px;width:171px;height:256px;" onclick="openLightbox(1)">
+    <img src="images/gallery_02.png" alt="">
+  </div>
+  <div class="el gp" style="top:1857px;left:211px;width:170px;height:255px;" onclick="openLightbox(2)">
+    <img src="images/gallery_03.png" alt="">
+  </div>
+
+  <div class="el sig-sm" style="top:1985px;left:20px;width:123px;">We will live each day with gratitude, always saying "thanks to," rather than "because of."</div>
+
+  <div class="el gp" style="top:2132px;left:20px;width:187px;height:281px;" onclick="openLightbox(3)">
+    <img src="images/gallery_04.png" alt="">
+  </div>
+  <div class="el gp" style="top:2132px;left:217px;width:78px;height:117px;" onclick="openLightbox(5)">
+    <img src="images/gallery_06.png" alt="">
+  </div>
+  <div class="el gp" style="top:2132px;left:304px;width:78px;height:117px;" onclick="openLightbox(4)">
+    <img src="images/gallery_05.png" alt="">
+  </div>
+
+  <span class="el sig-sm" style="top:2412px;left:341px;white-space:nowrap;">2026. 08. 22</span>
+
+  <div class="el gp" style="top:2433px;left:20px;width:114px;height:171px;" onclick="openLightbox(6)">
+    <img src="images/gallery_07.png" alt="">
+  </div>
+  <div class="el gp" style="top:2433px;left:144px;width:114px;height:171px;" onclick="openLightbox(7)">
+    <img src="images/gallery_08.png" alt="">
+  </div>
+  <div class="el gp" style="top:2433px;left:268px;width:114px;height:171px;" onclick="openLightbox(8)">
+    <img src="images/gallery_09.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:2624px;left:147px;width:235px;height:352px;" onclick="openLightbox(9)">
+    <img src="images/gallery_10.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:2996px;left:20px;width:114px;height:171px;" onclick="openLightbox(10)">
+    <img src="images/gallery_11.png" alt="">
+  </div>
+  <div class="el gp" style="top:2996px;left:144px;width:114px;height:171px;" onclick="openLightbox(11)">
+    <img src="images/gallery_12.png" alt="">
+  </div>
+  <div class="el gp" style="top:2996px;left:268px;width:114px;height:172px;" onclick="openLightbox(12)">
+    <img src="images/gallery_13.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:3188px;left:20px;width:362px;height:543px;" onclick="openLightbox(13)">
+    <img src="images/gallery_14.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:3751px;left:20px;width:171px;height:257px;" onclick="openLightbox(15)">
+    <img src="images/gallery_16.png" alt="">
+  </div>
+  <div class="el gp" style="top:3880px;left:211px;width:170px;height:255px;" onclick="openLightbox(16)">
+    <img src="images/gallery_17.png" alt="">
+  </div>
+
+  <span class="el sig" style="top:3835px;left:211px;font-size:24.229px;">WonBo</span>
+
+  <div class="el gp" style="top:4155px;left:20px;width:362px;height:544px;" onclick="openLightbox(14)">
+    <img src="images/gallery_15.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:4719px;left:20px;width:138px;height:207px;" onclick="openLightbox(18)">
+    <img src="images/gallery_19.png" alt="">
+  </div>
+  <span class="el sig" style="top:4719px;left:298px;font-size:24.229px;">YoonJung</span>
+
+  <div class="el gp" style="top:4946px;left:96px;width:138px;height:207px;" onclick="openLightbox(17)">
+    <img src="images/gallery_18.png" alt="">
+  </div>
+  <div class="el gp" style="top:4946px;left:244px;width:138px;height:207px;" onclick="openLightbox(19)">
+    <img src="images/gallery_20.png" alt="">
+  </div>
+  <div class="el gp" style="top:5173px;left:244px;width:138px;height:207px;" onclick="openLightbox(20)">
+    <img src="images/gallery_21.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:5400px;left:20px;width:362px;height:241px;" onclick="openLightbox(21)">
+    <img src="images/gallery_22.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:5661px;left:20px;width:114px;height:171px;" onclick="openLightbox(22)">
+    <img src="images/gallery_23.png" alt="">
+  </div>
+  <div class="el gp" style="top:5661px;left:144px;width:114px;height:171px;" onclick="openLightbox(23)">
+    <img src="images/gallery_24.png" alt="">
+  </div>
+  <div class="el gp" style="top:5661px;left:268px;width:114px;height:171px;" onclick="openLightbox(24)">
+    <img src="images/gallery_25.png" alt="">
+  </div>
+
+  <div class="el gp" style="top:5852px;left:20px;width:114px;height:171px;" onclick="openLightbox(25)">
+    <img src="images/gallery_26.png" alt="">
+  </div>
+  <div class="el gp" style="top:5852px;left:144px;width:114px;height:171px;" onclick="openLightbox(26)">
+    <img src="images/gallery_27.png" alt="">
+  </div>
+  <div class="el gp" style="top:5852px;left:268px;width:114px;height:171px;" onclick="openLightbox(27)">
+    <img src="images/gallery_28.png" alt="">
+  </div>
+
+  <!-- ── LOCATION ── -->
+  <p class="el t-loc-label">Location</p>
+  <div class="el t-venue-name">
+    <p>더컨벤션 송파문정</p>
+    <p>13층 아모르홀</p>
+  </div>
+  <div class="el t-venue-addr">
+    <p>서울 송파구 송파대로 155</p>
+    <p>02-6418-5000</p>
+  </div>
+
+  <!-- 지도 이미지 (탭 → 네이버지도) -->
+  <a class="el map-box" href="https://map.naver.com/p/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98+%EC%86%A1%ED%8C%8C%EB%AC%B8%EC%A0%95" target="_blank" rel="noopener">
+    <img src="images/map.png" alt="더컨벤션 송파문정 지도">
+  </a>
+
+  <!-- navigation buttons (right-aligned, below map) -->
+  <div class="el nav-btns">
+    <a class="nav-btn" href="https://apis.openapi.sk.com/tmap/app/routes?appKey=&name=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98+%EC%86%A1%ED%8C%8C%EB%AC%B8%EC%A0%95&lon=127.1226&lat=37.4854" target="_blank" rel="noopener">T맵</a>
+    <a class="nav-btn" href="https://map.kakao.com/link/to/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98+%EC%86%A1%ED%8C%8C%EB%AC%B8%EC%A0%95,37.4854,127.1226" target="_blank" rel="noopener">카카오맵</a>
+    <a class="nav-btn" href="https://map.naver.com/p/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98+%EC%86%A1%ED%8C%8C%EB%AC%B8%EC%A0%95" target="_blank" rel="noopener">네이버지도</a>
+  </div>
+
+  <!-- ── PARENTS ── -->
+  <div class="el parents-bg"></div>
+
+  <!-- groom side -->
+  <span class="el t-par-title g">신랑</span>
+  <div class="ph-wrap" style="top:6637px;left:77px;width:53.8px;height:16.8px;">
+    <img src="images/phone_1.svg" alt="">
+    <a href="tel:01073347123" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01073347123" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+  <span class="el t-par-group g">신랑 측 혼주</span>
+  <span class="el t-role" style="top:6739px;left:79.5px;">아버지</span>
+  <span class="el t-pname" style="top:6739px;left:128.5px;">김준협</span>
+  <div class="ph-wrap" style="top:6772px;left:77px;width:53.8px;height:16.8px;">
+    <img src="images/phone_1.svg" alt="">
+    <a href="tel:01037588278" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01037588278" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+  <span class="el t-role" style="top:6809px;left:79.5px;">어머니</span>
+  <span class="el t-pname" style="top:6809px;left:128.5px;">윤정희</span>
+  <div class="ph-wrap" style="top:6842px;left:77px;width:53.8px;height:16.8px;">
+    <img src="images/phone_3.svg" alt="">
+    <a href="tel:01037276961" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01037276961" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+
+  <!-- bride side -->
+  <span class="el t-par-title b">신부</span>
+  <div class="ph-wrap" style="top:6637px;left:271px;width:53.8px;height:16.8px;">
+    <img src="images/phone_2.svg" alt="">
+    <a href="tel:01096769660" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01096769660" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+  <span class="el t-par-group b">신부 측 혼주</span>
+  <span class="el t-role" style="top:6739px;left:273.5px;">아버지</span>
+  <span class="el t-pname" style="top:6739px;left:322.5px;">허연종</span>
+  <div class="ph-wrap" style="top:6772px;left:271px;width:53.8px;height:16.8px;">
+    <img src="images/phone_2.svg" alt="">
+    <a href="tel:01037394346" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01037394346" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+  <span class="el t-role" style="top:6809px;left:273.5px;">어머니</span>
+  <span class="el t-pname" style="top:6809px;left:322.5px;">임재언</span>
+  <div class="ph-wrap" style="top:6842px;left:271px;width:53.8px;height:16.8px;">
+    <img src="images/phone_4.svg" alt="">
+    <a href="tel:01087399560" class="ph-link" style="left:0;width:50%;"></a>
+    <a href="sms:01087399560" class="ph-link" style="left:50%;width:50%;"></a>
+  </div>
+
+  <!-- ── GIFT ── -->
+  <p class="el t-gift-title">신랑 &amp; 신부에게 마음 전하기</p>
+  <p class="el t-gift-desc">축복의 의미로 축의금을 전달해보세요</p>
+  <button class="el gift-btn gb1" onclick="openModal('groom')">신랑 측 계좌번호</button>
+  <button class="el gift-btn gb2" onclick="openModal('bride')">신부 측 계좌번호</button>
+
+  <!-- ── FOOTER ── -->
+  <div class="el footer-bg"></div>
+  <div class="el t-footer">
+    <p>저희의 새로운 시작을 축하해 주신 </p>
+    <p>모든 분들께 진심으로 감사드립니다.</p>
+  </div>
+
+</div><!-- .page -->
+
+<!-- ── GROOM MODAL ── -->
+<div id="modal-groom" class="modal-overlay" onclick="if(event.target===this)closeModal('groom')">
+  <div class="modal-sheet">
+    <button class="modal-x" onclick="closeModal('groom')">✕</button>
+    <p class="modal-title">신랑 측 계좌번호</p>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">하나은행</div>
+        <div>252-910268-48407</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 김원보</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('하나은행 252-910268-48407')">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">카카오뱅크</div>
+        <div>3333-07-7693193</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 김준협</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('카카오뱅크 3333077693193')">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">우리은행</div>
+        <div>1002-132-902235</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 윤정희</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('우리은행 1002132902235')">복사</button>
+    </div>
+    <button class="modal-close" onclick="closeModal('groom')">닫기</button>
+  </div>
+</div>
+
+<!-- ── BRIDE MODAL ── -->
+<div id="modal-bride" class="modal-overlay" onclick="if(event.target===this)closeModal('bride')">
+  <div class="modal-sheet">
+    <button class="modal-x" onclick="closeModal('bride')">✕</button>
+    <p class="modal-title">신부 측 계좌번호</p>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">카카오뱅크</div>
+        <div>3333-12-7573707</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 허윤정</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('카카오뱅크 3333127573707')">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">국민은행</div>
+        <div>505802-01-209567</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 허연종</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('국민은행 505802-01-209567')">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        <div style="font-weight:500;margin-bottom:2px;">하나은행</div>
+        <div>166-910419-70607</div>
+        <div style="color:#7a8073;font-size:12px;">예금주: 임재언</div>
+      </div>
+      <button class="copy-btn" onclick="copyAcct('하나은행 166-910419-70607')">복사</button>
+    </div>
+    <button class="modal-close" onclick="closeModal('bride')">닫기</button>
+  </div>
+</div>
+
+<!-- toast -->
+<div id="toast" style="
+  display:none; position:fixed; bottom:80px; left:50%;
+  transform:translateX(-50%);
+  background:rgba(35,33,28,0.85); color:white;
+  padding:8px 18px; border-radius:20px;
+  font-family:'Pretendard',sans-serif; font-size:13px;
+  z-index:300; white-space:nowrap;
+">계좌번호가 복사되었습니다</div>
+
+<script>
+  /* ── scaling ── */
+  function scaleToViewport() {
+    const page = document.getElementById('page');
+    const scale = window.innerWidth / 402;
+    page.style.transform = 'scale(' + scale + ')';
+    document.body.style.height = (7371 * scale) + 'px';
+  }
+  window.addEventListener('resize', scaleToViewport);
+  scaleToViewport();
+
+  /* ── BGM ── */
+  const bgm = document.getElementById('bgm');
+  const bgmBtn = document.getElementById('bgm-btn');
+  let bgmPlaying = false;
+
+  function setBgmIcon() { bgmBtn.textContent = bgmPlaying ? '❚❚' : '♪'; }
+
+  function toggleBGM() {
+    if (bgmPlaying) {
+      bgm.pause(); bgmPlaying = false; setBgmIcon();
+    } else {
+      bgm.play().then(() => { bgmPlaying = true; setBgmIcon(); }).catch(() => {});
+    }
+  }
+
+  bgm.play().then(() => { bgmPlaying = true; setBgmIcon(); }).catch(() => {
+    document.addEventListener('touchstart', function startBgm() {
+      bgm.play().then(() => { bgmPlaying = true; setBgmIcon(); }).catch(() => {});
+    }, { once: true });
+  });
+
+  /* ── lightbox ── */
+  const galleryImages = Array.from({length:28}, function(_, i) {
+    return 'images/gallery_' + ('0' + (i + 1)).slice(-2) + '.png';
+  });
+  let lbIdx = 0;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCounter = document.getElementById('lb-counter');
+
+  function openLightbox(idx) {
+    lbIdx = idx; lb.style.display = 'flex';
+    lbImg.src = galleryImages[lbIdx];
+    lbCounter.textContent = (lbIdx + 1) + ' / ' + galleryImages.length;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function lbUpdate() {
+    lbImg.src = galleryImages[lbIdx];
+    lbCounter.textContent = (lbIdx + 1) + ' / ' + galleryImages.length;
+  }
+
+  function closeLightbox() { lb.style.display = 'none'; document.body.style.overflow = ''; }
+
+  document.getElementById('lb-close').onclick = closeLightbox;
+  document.getElementById('lb-prev').onclick = function() {
+    lbIdx = (lbIdx - 1 + galleryImages.length) % galleryImages.length; lbUpdate();
+  };
+  document.getElementById('lb-next').onclick = function() {
+    lbIdx = (lbIdx + 1) % galleryImages.length; lbUpdate();
+  };
+
+  var lbTouchX = 0;
+  lb.addEventListener('touchstart', function(e) { lbTouchX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - lbTouchX;
+    if (Math.abs(dx) > 50) {
+      lbIdx = dx < 0
+        ? (lbIdx + 1) % galleryImages.length
+        : (lbIdx - 1 + galleryImages.length) % galleryImages.length;
+      lbUpdate();
+    }
+  });
+
+  /* ── modals ── */
+  function openModal(side) {
+    document.getElementById('modal-' + side).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(side) {
+    document.getElementById('modal-' + side).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── ESC ── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeLightbox(); closeModal('groom'); closeModal('bride'); }
+  });
+
+  /* ── clipboard ── */
+  function copyAcct(num) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(num).catch(function() { fallbackCopy(num); });
+    } else { fallbackCopy(num); }
+    var t = document.getElementById('toast');
+    t.style.display = 'block';
+    setTimeout(function() { t.style.display = 'none'; }, 1500);
+  }
+  function fallbackCopy(text) {
+    var el = document.createElement('textarea');
+    el.value = text; el.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(el); el.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(el);
+  }
+
+</script>
+</body>
+</html>
