@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import sys,json; data=sys.stdin.read\\(\\); lines=[l for l in data.split\\('\\\\n'\\) if l.startswith\\('data:'\\)]; print\\(json.dumps\\(json.loads\\(lines[-1][5:]\\), indent=2, ensure_ascii=False\\)\\)\")",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"get_metadata\",\"arguments\":{}}}')",
+      "Bash(python3 *)"
     ]
   }
 }
